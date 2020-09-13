@@ -1,0 +1,16 @@
+
+  kind: pipeline
+  name: calculator-api
+
+  steps:
+  - name: nodeTest
+    image: node
+    commands:
+      - npm install
+      - npm install -g mocha
+      - npm -g install chai
+      - npm -g install chai-http
+      - npm -g install mochawesome
+      - git clone https://github.com/unsortedArray/calculator-api-test-cases
+      - cd calculator-api-test-cases
+      - mocha TestCases.js --reporter mochawesome --exit
